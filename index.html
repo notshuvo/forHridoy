@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="happy birtday.css" />
+    <title>Happy birthday</title>
+  </head>
+  <body>
+    <audio id="bg-music" src="mistake.mp3" autoplay loop></audio>
+    <canvas id="c"></canvas>
+
+    <script src="happy birtday.js"></script>
+    <script>
+      const audio = document.getElementById('bg-music');
+      audio.play().catch(() => {
+        const playMusic = () => {
+          audio.play();
+          document.removeEventListener('click', playMusic);
+          document.removeEventListener('touchstart', playMusic);
+        };
+        document.addEventListener('click', playMusic);
+        document.addEventListener('touchstart', playMusic);
+      });
+    </script>
+  </body>
+</html>
